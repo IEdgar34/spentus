@@ -44,10 +44,14 @@
                     height: 45px;
                     transition-property: transform;
                     transition-duration: 0.4s;
+                    margin-left: 5px;
                     @include to-md {
                         width: 35px;
                         height: 35px;
                     }
+                }
+                @include to-sm  {
+                    padding: 17px 5px 17px 17px;
                 }
                 img.active {
                     transform: rotate(90deg);

@@ -34,6 +34,8 @@
             border-radius: 20px;
             padding: 20px;
             hyphens: auto;
+            width: 100%;
+            min-width: 100%;
             overflow-wrap: break-word;
         }
         @include to-sm {
