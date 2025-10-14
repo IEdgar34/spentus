@@ -1,0 +1,111 @@
+@use "../mixins/mixins" as *;
+@use "sass:math";
+.perinatal {
+    width: 100%;
+    height: auto;
+    padding-bottom: 50px;
+    display: flex;
+    gap: 20px;
+    @include to-1278 {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+    &__title {
+        align-self: start;
+        flex-grow: 0;
+        color: rgba(255, 255, 255, 1);
+        font-size: 56px;
+        @include fluid-text(20, 56);
+        font-weight: 900;
+        line-height: 100%;
+        text-transform: uppercase;
+        width: max-content;
+        max-width: 810px;
+        $w: math.div(810, math.div(1920, 100));
+        max-width: clamp(400px, #{$w}vw, 810px);
+        padding: 49px 57px 84px 72px;
+        $p: math.div(72, math.div(1920, 100));
+        padding-left: clamp(20px, #{$p}vw, 72px);
+        border-radius: 0px 20px 20px 0px;
+        background: linear-gradient(129.36deg, rgba(237, 176, 68, 1), rgba(192, 137, 40, 1) 51%, rgba(241, 221, 145, 1) 100%);
+        @include to-1278 {
+            margin: 0 auto;
+            border-radius: 20px;
+            padding: 20px;
+            hyphens: auto;
+            overflow-wrap: break-word;
+        }
+        @include to-sm {
+            max-width: 300px;
+        }
+    }
+    &__acc-wrapper {
+        width: 100%;
+        max-width: 958px;
+        padding-right: 20px;
+        @include to-1278 {
+            padding-right: 0;
+        }
+    }
+    &__acc-list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+        &_item {
+            width: 100%;
+            &_title {
+                display: flex;
+                justify-content: space-between;
+                padding: 5px 10px;
+                margin-bottom: 14px;
+                align-items: center;
+                border-radius: 100px;
+                border: 2px solid #d63243;
+                background: rgba(255, 255, 255, 1);
+                cursor: pointer;
+                user-select: none;
+
+                img {
+                    display: block;
+                    width: 45px;
+                    height: 45px;
+                    transition-property: transform;
+                    transition-duration: 0.4s;
+                    @include to-1278 {
+                        width: 35px;
+                        height: 35px;
+                    }
+                    
+                }
+                img.active {
+                    transform: rotate(90deg);
+                }
+            }
+            &_txt {
+                color: rgba(13, 13, 13, 1);
+                font-size: 22px;
+                @include fluid-text(15, 22);
+                font-weight: 400;
+                line-height: 13px;
+            }
+            &_descr {
+                color: rgba(13, 13, 13, 1);
+                font-size: 16px;
+                @include fluid-text(14, 16);
+                font-weight: 300;
+                line-height: 100%;
+                transition-property: height, opacity;
+                transition-duration: 0.4s;
+                height: 0;
+                overflow: hidden;
+                opacity: 0;
+                &_active {
+                    overflow: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

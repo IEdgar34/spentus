@@ -1,0 +1,140 @@
+@use "../mixins/mixins" as *;
+.about {
+    width: 100%;
+    height: auto;
+    padding-top: 50px;
+    &-wrapper {
+        display: flex;
+        gap: 40px;
+        @include to-xl {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    &-image {
+        /* flex: 1 1 auto; */
+        flex-shrink: 0;
+        width: 473px;
+        aspect-ratio: 6/9;
+        @include to-xl {
+            flex-shrink: 1;
+            aspect-ratio: 4/5;
+        }
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: top;
+        }
+    }
+    &_descr-wrapper {
+        flex-shrink: 5;
+    }
+    &__title-wrapper {
+        border-left: 9px solid #ae1924;
+        padding: 21px;
+        &_title {
+            color: rgba(13, 13, 13, 1);
+            font-size: 74px;
+            @include fluid-text(30, 74);
+            font-weight: 900;
+            line-height: 100%;
+            text-transform: uppercase;
+        }
+        &_descr {
+            margin-top: 7px;
+            color: rgba(13, 13, 13, 1);
+            font-size: 22px;
+            @include fluid-text(18, 22);
+            font-weight: 400;
+            line-height: 26px;
+        }
+    }
+    &__tabs {
+        margin-top: 38px;
+        &_tab-list {
+            display: flex;
+            /*  justify-content: space-between; */
+            flex-wrap: wrap;
+            column-gap: 39px;
+            row-gap: 10px;
+
+            &_item {
+                border: 3px solid rgba(174, 25, 36, 1);
+                padding: 5px 15px;
+                border-radius: 100px;
+                display: flex;
+                align-items: center;
+                gap: 22px;
+                opacity: 0.4;
+                cursor: pointer;
+                @include to-xl {
+                    padding: 4px 15px;
+                }
+                &_img {
+                    transition-property: transform;
+                    transition-duration: 0.4s;
+                    &_active {
+                        transform: rotate(90deg);
+                    }
+                  
+                }
+                img {
+                    display: block;
+                    width: 45px;
+                    height: 45px;
+                    object-fit: contain;
+                    @include to-xl {
+                        width: 35px;
+                        height: 35px;
+                    }
+                   
+                }
+                p {
+                    color: rgba(13, 13, 13, 1);
+                    font-size: 22px;
+                    @include fluid-text(17, 22);
+                    font-weight: 400;
+                    line-height: 26px;
+                    text-align: center;
+                }
+                &_active {
+                    opacity: 1;
+                }
+                &:hover {
+                    opacity: 1;
+                    .about__tabs_tab-list_item_img {
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+        }
+    }
+    &__tabs-content {
+        margin-top: 22px;
+        &_list {
+            /* display: flex; */
+            flex-direction: column;
+            gap: 20px;
+            display: none;
+            &_item {
+                color: rgba(13, 13, 13, 1);
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 100%;
+                text-align: left;
+                span {
+                    color: rgba(13, 13, 13, 1);
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 100%;
+                    text-align: left;
+                }
+            }
+            &_active {
+                display: flex;
+            }
+        }
+    }
+}
