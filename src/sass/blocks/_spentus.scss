@@ -32,6 +32,8 @@
     picture {
         position: relative;
         z-index: 11;
+        max-height: max-content;
+        align-self: start;
         &:before {
             display: block;
             position: absolute;
